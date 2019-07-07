@@ -13,7 +13,7 @@ but things that work are:
   * AGC Threshold (don't know what this does :()
   * Antena Switch (have nothing to switch so no use for it yet)
   * RF/IF Gain boost (SDR# doesn't expose any methods for that)
-  * Stereo Indicator (SDR# didn't expose this to plugins yet)
+  * Stereo Indicator (SDR# doesn't expose this to plugins yet)
   * Volume control (you could control your PC volume with that or SDR# volume :))
   * Stereo de-emphasis switch (now way of switching it from SDR# eather so :()
  
