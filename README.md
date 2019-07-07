@@ -15,7 +15,7 @@ but things that work are:
   * RF/IF Gain boost (SDR# doesn't expose any methods for that)
   * Stereo Indicator (SDR# doesn't expose this to plugins yet)
   * Volume control (you could control your PC volume with that or SDR# volume :))
-  * Stereo de-emphasis switch (now way of switching it from SDR# eather so :()
+  * Stereo de-emphasis switch (no way of switching it from SDR# eather so :()
  
  MagicLine
  ```xml
