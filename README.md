@@ -7,6 +7,7 @@ but things that work are:
   * Tunning
   * Modulation select (AM/FM)
   * Squelch (exept Stereo Squelch as I don't know what that is)
+  
  What does not work:
   * RDS
   * AGC Threshold (don't know what this does :()
