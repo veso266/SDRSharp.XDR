@@ -19,7 +19,7 @@ but things that work are:
  
  MagicLine
  ```xml
-<add key="XDR" value="SDRSharp.XDR.XDRPlugin,SDRSharp.XDR" />
+<add key="XDR" value="SDRSharp.XDR.XDRPlugin.SDRSharp.XDR" />
  ```
  
  Exmplanation of MagicLine(if you want to write your own plugin someday)
