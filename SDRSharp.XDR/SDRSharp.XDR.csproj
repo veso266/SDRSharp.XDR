@@ -74,6 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RDS\RDSFunctions.cs" />
+    <Compile Include="RDS\RDSHandle.cs" />
     <Compile Include="SerialCommands.cs" />
     <Compile Include="SerialPorts.cs" />
     <Compile Include="SettingsPanel.cs">

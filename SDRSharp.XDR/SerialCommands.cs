@@ -10,7 +10,7 @@ using SDRSharp.PanView;
 
 namespace SDRSharp.XDR
 {
-    public class SerialCommands
+    public partial class SerialCommands
     {
         private static System.IO.Ports.SerialPort SP; //For Serial Communication
         private static byte filter; //Filter BW
@@ -199,22 +199,28 @@ namespace SDRSharp.XDR
                 }
                 catch (TimeoutException) //It updates to slowly so why not sent it when nothing is happening :) 
                 {
+                    
                     //Signal, stereo and RDS :)
                     SP.Write("S"); //Signal
 
                     //Sterep/MONO
                     if (XDRPlugin._sdr.FmStereo) //If stereo checkbox is checked
                     {
-                        SP.Write("s");
-                        //SP.Write((SignalIsStereo) ? 's' : 'm'); We don't have acsess to vfo.SignalIsStereo
+                        //SP.Write("s");
+                        SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "s" : "m"); //We don't have acsess to vfo.SignalIsStereo
                     }
                     else
                     {
-                        SP.Write("S");
-                        //SP.Write((SignalIsStereo) ? 'S' : 'M'); We don't have acsess to vfo.SignalIsStereo
+                        //SP.Write("S");
+                        SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "S" : "M"); //We don't have acsess to vfo.SignalIsStereo
                     }
                     serial_signal(XDRPlugin._sdr.VisualSNR, 2); //Signal 
                     SP.Write("\n");
+                    
+
+                    //RDS
+                    //ushort pi = 37377;
+                    //serial_pi(pi, -1);
                 }
             }
             XDRPlugin._waiting = false;
@@ -229,6 +235,11 @@ namespace SDRSharp.XDR
             if (precision == 2 && n < 10)
                 SP.Write("0");
             SP.Write(n.ToString());
+        }
+        public static void serial_hex(byte val)
+        {
+            SP.Write(((val >> 4) & 0xF).ToString("X"));
+            SP.Write((val & 0xF).ToString("X"));
         }
     }
 }

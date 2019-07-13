@@ -46,6 +46,9 @@ namespace SDRSharp.XDR
             //For Signal meter
             this.spectrumAnalyzer = new SpectrumAnalyzer();
             this.spectrumAnalyzer.EnableSNR = true;
+
+            //Hook into RDS stream
+            XDRPlugin._sdr.RegisterStreamHook(new RDSHandle(), ProcessorType.RDSBitStream);
         }
 
 		// When you close SDR# it calls this
