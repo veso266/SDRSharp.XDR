@@ -1,9 +1,0 @@
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR#Debug\SDRSharp.XDR.dll
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR#Debug\SDRSharp.XDR.pdb
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR# Plugin\Plugin\SDRSharp.XDR\SDRSharp.XDR\obj\Debug\SDRSharp.XDR.csprojAssemblyReference.cache
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR# Plugin\Plugin\SDRSharp.XDR\SDRSharp.XDR\obj\Debug\SDRSharp.XDR.SettingsPanel.resources
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR# Plugin\Plugin\SDRSharp.XDR\SDRSharp.XDR\obj\Debug\SDRSharp.XDR.csproj.GenerateResource.cache
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR# Plugin\Plugin\SDRSharp.XDR\SDRSharp.XDR\obj\Debug\SDRSharp.XDR.csproj.CoreCompileInputs.cache
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR# Plugin\Plugin\SDRSharp.XDR\SDRSharp.XDR\obj\Debug\SDRSharp.XDR.csproj.CopyComplete
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR# Plugin\Plugin\SDRSharp.XDR\SDRSharp.XDR\obj\Debug\SDRSharp.XDR.dll
-C:\Users\Mitja\Documents\Visual Studio 2017\Projects\SDR\XDR-GTK Server\SDR# Plugin\Plugin\SDRSharp.XDR\SDRSharp.XDR\obj\Debug\SDRSharp.XDR.pdb
