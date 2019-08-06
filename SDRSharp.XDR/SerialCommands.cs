@@ -199,23 +199,22 @@ namespace SDRSharp.XDR
                 }
                 catch (TimeoutException) //It updates to slowly so why not sent it when nothing is happening :) 
                 {
-                    
-                    //Signal, stereo and RDS :)
-                    SP.Write("S"); //Signal
 
+                    //Signal, stereo and RDS :)
+                    SP.Write("\r\n");
+                    SP.Write("S"); //Signal
+                    
                     //Sterep/MONO
                     if (XDRPlugin._sdr.FmStereo) //If stereo checkbox is checked
                     {
-                        //SP.Write("s");
                         SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "s" : "m"); //We don't have acsess to vfo.SignalIsStereo
                     }
                     else
                     {
-                        //SP.Write("S");
                         SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "S" : "M"); //We don't have acsess to vfo.SignalIsStereo
                     }
                     serial_signal(XDRPlugin._sdr.VisualSNR, 2); //Signal 
-                    SP.Write("\n");
+                    SP.Write("\r\n");
                     
 
                     //RDS
@@ -238,8 +237,14 @@ namespace SDRSharp.XDR
         }
         public static void serial_hex(byte val)
         {
-            SP.Write(((val >> 4) & 0xF).ToString("X"));
-            SP.Write((val & 0xF).ToString("X"));
+            try
+            {
+                //SP.Write("\r\n");
+                SP.Write(((val >> 4) & 0xF).ToString("X"));
+                SP.Write((val & 0xF).ToString("X"));
+                //SP.Write("\r\n");
+            }
+            catch{}
         }
     }
 }
