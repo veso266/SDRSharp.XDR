@@ -19,11 +19,11 @@ but things that work are:
  
  MagicLine
  ```xml
-<add key="XDR" value="SDRSharp.XDR.XDRPlugin.SDRSharp.XDR" />
+<add key="XDR" value="SDRSharp.XDR.XDRPlugin,SDRSharp.XDR" />
  ```
  
  Exmplanation of MagicLine(if you want to write your own plugin someday)
  ```xml
- <add key="Whatever-you-want-that-is-unique" value="NameSpace.EntryPoint.DLLName" />
+ <add key="Whatever-you-want-that-is-unique" value="NameSpace.EntryPoint,DLLName" />
  ```
  ![SDRSharp.XDR](IMGS/SDRSharp.XDRv0.5.PNG?raw=true "How it looks like when it works :)")
