@@ -85,5 +85,10 @@ namespace SDRSharp.XDR
 
         //Main controls are here (set frequency, start radio, stop radio, etx)
         public static ISharpControl _sdr;
-	}
+
+        //for RDS
+        public static ushort PI_Code;
+        public static string RDS_Group = null;
+        public static bool RDSDetected;
+    }
 }

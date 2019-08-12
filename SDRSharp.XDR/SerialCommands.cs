@@ -195,31 +195,33 @@ namespace SDRSharp.XDR
                             //Debug.WriteLine(Tuner);
                             break;
                     }
-                    //Debug.WriteLine(Tuner);
+                    Debug.WriteLine(Tuner);
                 }
                 catch (TimeoutException) //It updates to slowly so why not sent it when nothing is happening :) 
                 {
 
                     //Signal, stereo and RDS :)
-                    SP.Write("\r\n");
                     SP.Write("S"); //Signal
                     
                     //Sterep/MONO
                     if (XDRPlugin._sdr.FmStereo) //If stereo checkbox is checked
                     {
-                        SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "s" : "m"); //We don't have acsess to vfo.SignalIsStereo
+                        SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "s" : "m");
                     }
                     else
                     {
-                        SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "S" : "M"); //We don't have acsess to vfo.SignalIsStereo
+                        SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "S" : "m");
                     }
                     serial_signal(XDRPlugin._sdr.VisualSNR, 2); //Signal 
-                    SP.Write("\r\n");
-                    
+                    SP.Write("\n");
+
 
                     //RDS
-                    //ushort pi = 37377;
-                    //serial_pi(pi, -1);
+                    serial_pi(XDRPlugin.PI_Code, 3);
+                    SP.Write("R");
+                    SP.Write(XDRPlugin.RDS_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
+                    SP.Write("\n");
+                    XDRPlugin.RDS_Group = null;
                 }
             }
             XDRPlugin._waiting = false;
@@ -239,10 +241,8 @@ namespace SDRSharp.XDR
         {
             try
             {
-                //SP.Write("\r\n");
                 SP.Write(((val >> 4) & 0xF).ToString("X"));
                 SP.Write((val & 0xF).ToString("X"));
-                //SP.Write("\r\n");
             }
             catch{}
         }

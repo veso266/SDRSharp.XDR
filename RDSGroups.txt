@@ -1,0 +1,22 @@
+17:06:38] f4cmb:       R040F8289522000
+					   R84084991E55F00  
+[11/Aug/2019:17:07:11] R040A0204544500  
+[11/Aug/2019:17:07:11] R240D52442D4F00  
+[11/Aug/2019:17:07:11] R040F0448522000  
+[11/Aug/2019:17:07:11] R84084991E55F00  
+[11/Aug/2019:17:07:12] R240E5545535400  
+[11/Aug/2019:17:07:12] R04080414202000  
+[11/Aug/2019:17:07:12] RE4150456F20200
+
+
+Hi Olivier!  
+I've just released new version of XDR-GTK with a new feature for better static RDS PS decoding.  
+I'm calculating a possible error level of each RDS PS character, as follows: 
+
+
+x = 2 * BLOCK_2 + 3 * BLOCK_4 where BLOCK_2 and BLOCK_4 can be: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
+
+[17:11:46] f4cmb: ok
+[17:11:53] f4cmb: blocs are 
+[17:12:05] f4cmb: RBBBBCCCCDDDD
+[17:12:20] f4cmb: no bloc A

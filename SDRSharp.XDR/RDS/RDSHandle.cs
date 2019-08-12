@@ -24,11 +24,8 @@ namespace SDRSharp.XDR
             string text = string.Format("{0:X}", _rdsFrame.GroupA);
             if (text.Length == 4)
             {
-                //SerialCommands.sdr_read_rds(ref _rdsFrame);
-                //Debug.WriteLine(_rdsFrame.GroupA.ToString("X4"));
-                //this._rdsDDekoder.printData(ref _rdsFrame);
+                SerialCommands.rds_send(ref _rdsFrame);
             }
-
         }
     }
 }
