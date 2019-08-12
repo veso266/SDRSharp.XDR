@@ -27,4 +27,4 @@ but things that work are:
  <add key="Whatever-you-want-that-is-unique" value="NameSpace.EntryPoint,DLLName" />
  ```
  ![SDRSharp.XDR](IMGS/SDRSharp.XDRv0.6v1.PNG?raw=true "How it looks like when it works :)")
- ![SDRSharp.XDR](IMGS/SDRSharp.XDRv0.6v2.PNG?raw=true "How it looks like when it works :)")
+ ![SDRSharp.XDR](IMGS/SDRSharp.XDRv0.6v3.PNG?raw=true "How it looks like when it works :)")
