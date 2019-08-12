@@ -3,6 +3,7 @@ This is Server for XDR-GTK
 It doesn't do much yet
 but things that work are:
   * Signal Meter
+  * RDS (almost as PS Correction doesn't work and RDS LED is always lid as there is no isRDSDeceted bool in SDR# yet)
   * Filter Bandwith
   * Tunning
   * Modulation select (AM/FM)
@@ -10,7 +11,6 @@ but things that work are:
   * Stereo Indicator (Thanks Youssef for adding FmPilotIsDetected to ISharpControl in SDR# rev 1702)
   
  What does not work:
-  * RDS
   * AGC Threshold (don't know what this does :()
   * Antena Switch (have nothing to switch so no use for it yet)
   * RF/IF Gain boost (SDR# doesn't expose any methods for that)
