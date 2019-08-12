@@ -217,7 +217,7 @@ namespace SDRSharp.XDR
 
 
                     //RDS
-                    serial_pi(XDRPlugin.PI_Code, 3);
+                    serial_pi(XDRPlugin.PI_Code, PI_CORRECT);
                     SP.Write("R");
                     SP.Write(XDRPlugin.RDS_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
                     SP.Write("\n");
