@@ -28,3 +28,5 @@ but things that work are:
  ```
  ![SDRSharp.XDR](IMGS/SDRSharp.XDRv0.6v1.PNG?raw=true "How it looks like when it works :)")
  ![SDRSharp.XDR](IMGS/SDRSharp.XDRv0.6v3.PNG?raw=true "How it looks like when it works :)")
+ 
+ **Thank to Olivier Guillaume (f4cmb) for providing me with RDS Samples from Sony as without him RDS woldn't be possible**
