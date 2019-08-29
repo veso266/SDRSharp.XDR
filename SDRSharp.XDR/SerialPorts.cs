@@ -41,7 +41,7 @@ namespace SDRSharp.XDR
                 _serialPort.Parity = Parity.None;
                 _serialPort.Handshake = Handshake.None;
                 _serialPort.ReadTimeout = 25;
-                //_serialPort.WriteTimeout = 500;
+                //_serialPort.WriteTimeout = 25;
                 
                 try
                 {

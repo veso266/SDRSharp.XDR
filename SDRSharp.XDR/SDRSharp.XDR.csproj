@@ -49,6 +49,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SDRSharp.Common">
@@ -81,6 +82,7 @@
     <Compile Include="SettingsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Signal\AmplitudeProcessor.cs" />
     <Compile Include="XDRPlugin.cs" />
   </ItemGroup>
   <ItemGroup>

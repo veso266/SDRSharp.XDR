@@ -23,11 +23,6 @@ namespace SDRSharp.XDR
                 SP.Write("?");
             SP.Write("\n");
         }
-        public static void rds_send(ref RdsFrame _rdsFrame)
-        {
-            XDRPlugin.PI_Code = _rdsFrame.GroupA;
-            XDRPlugin.RDS_Group = _rdsFrame.GroupB.ToString("X4") + _rdsFrame.GroupC.ToString("X4") + _rdsFrame.GroupD.ToString("X4");
-        }
 
         public static byte AnalyseRDS(ushort groupB)
         {

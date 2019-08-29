@@ -24,7 +24,7 @@ namespace SDRSharp.XDR
             string text = string.Format("{0:X}", _rdsFrame.GroupA);
             if (text.Length == 4)
             {
-                SerialCommands.rds_send(ref _rdsFrame);
+                XDRPlugin.RDS_Group = _rdsFrame.GroupB.ToString("X4") + _rdsFrame.GroupC.ToString("X4") + _rdsFrame.GroupD.ToString("X4");
             }
         }
     }

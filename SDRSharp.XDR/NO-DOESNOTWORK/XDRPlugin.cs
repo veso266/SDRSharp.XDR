@@ -38,7 +38,8 @@ namespace SDRSharp.XDR
 			XDRPlugin._waiting = false;
 
 			this._comThread = new Thread(new ThreadStart(SerialCommands.ComThreadEngine));
-			this._controlPanel = new SettingsPanel(this);
+            this._processor = new AmplitudeProcessor();
+            this._controlPanel = new SettingsPanel(this, this._processor, XDRPlugin._sdr);
 			this._controlPanel.enableXdrCheckBox.Checked = this._controlPanel.XdrEnabled;
 			this._controlPanel.comPortsBox.SelectedIndex = this._controlPanel.comIndex;
 			this._controlPanel.BaudrateBox.SelectedIndex = this._controlPanel.BaudIndex;
@@ -76,6 +77,9 @@ namespace SDRSharp.XDR
         //For GUI
         private SettingsPanel _controlPanel;
 
+        //For custom Signal Meter
+        private AmplitudeProcessor _processor;
+
         //For Communication
         private Thread _comThread;
         public static SerialPort _serialPort;
@@ -87,6 +91,7 @@ namespace SDRSharp.XDR
         public static ISharpControl _sdr;
 
         //for RDS
+        public static ushort PI_Code;
         public static string RDS_Group = null;
         public static bool RDSDetected;
     }
