@@ -3,7 +3,7 @@ This is Server for XDR-GTK
 It doesn't do much yet
 but things that work are:
   * Signal Meter
-  * RDS (almost as PS Correction doesn't work and RDS LED is always lid as there is no isRDSDeceted bool in SDR# yet)
+  * RDS (almost as PS Correction doesn't work); as of SDR# rev r1715 there is RdsPICode in ISharpControl
   * Filter Bandwith
   * Tunning
   * Modulation select (AM/FM)
