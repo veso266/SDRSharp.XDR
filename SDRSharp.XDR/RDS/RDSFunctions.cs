@@ -68,5 +68,17 @@ namespace SDRSharp.XDR
             RDS_TYPE_15A = 0x001E,
             RDS_TYPE_15B = 0x001F
         }
+        public static void ParseData(string data)
+        {
+            //We are parsing ASCII G Protocol
+            string[] DataArr = data.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            if (DataArr[0] == "G:") //just check if we are not sending garbage or someone else is trying to poison our message :)
+            {
+                string RDSGroup = DataArr[1];
+                ushort PI = ushort.Parse(RDSGroup.Substring(0, 4)); //Short is 4 bytes long so it should never fail
+                XDRPlugin.RDS_PI = PI;
+                XDRPlugin.RDS_Group = RDSGroup;
+            }
+        }
     }
 }

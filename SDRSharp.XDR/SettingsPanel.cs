@@ -90,5 +90,10 @@ namespace SDRSharp.XDR
             this.BaudIndex = this.BaudrateBox.SelectedIndex;
             this._plugin.PopulateComPort();
         }
+        //We will open another windows when we click
+        private void AdvancedRDS_Click(object sender, EventArgs e)
+        {
+            AdvancedRDSWindow.Instance.Show(); 
+        }
     }
 }

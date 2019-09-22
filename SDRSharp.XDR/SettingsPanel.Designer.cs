@@ -54,9 +54,9 @@ namespace SDRSharp.XDR
             this.mainTableLayoutPanel.Controls.Add(this.enableXdrCheckBox, 0, 0);
             this.mainTableLayoutPanel.Controls.Add(this.label1, 0, 1);
             this.mainTableLayoutPanel.Controls.Add(this.label2, 1, 1);
-            this.mainTableLayoutPanel.Controls.Add(this.comPortsBox, 1, 2);
-            this.mainTableLayoutPanel.Controls.Add(this.BaudrateBox, 0, 2);
             this.mainTableLayoutPanel.Controls.Add(this.AdvancedRDS, 0, 3);
+            this.mainTableLayoutPanel.Controls.Add(this.BaudrateBox, 1, 2);
+            this.mainTableLayoutPanel.Controls.Add(this.comPortsBox, 0, 2);
             this.mainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.mainTableLayoutPanel.Name = "mainTableLayoutPanel";
@@ -96,7 +96,7 @@ namespace SDRSharp.XDR
             this.comPortsBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comPortsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comPortsBox.FormattingEnabled = true;
-            this.comPortsBox.Location = new System.Drawing.Point(105, 39);
+            this.comPortsBox.Location = new System.Drawing.Point(3, 39);
             this.comPortsBox.Name = "comPortsBox";
             this.comPortsBox.Size = new System.Drawing.Size(96, 21);
             this.comPortsBox.TabIndex = 2;
@@ -107,7 +107,7 @@ namespace SDRSharp.XDR
             this.BaudrateBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BaudrateBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BaudrateBox.FormattingEnabled = true;
-            this.BaudrateBox.Location = new System.Drawing.Point(3, 39);
+            this.BaudrateBox.Location = new System.Drawing.Point(105, 39);
             this.BaudrateBox.Name = "BaudrateBox";
             this.BaudrateBox.Size = new System.Drawing.Size(96, 21);
             this.BaudrateBox.TabIndex = 3;
@@ -122,6 +122,7 @@ namespace SDRSharp.XDR
             this.AdvancedRDS.TabIndex = 2;
             this.AdvancedRDS.Text = "Advanced RDS";
             this.AdvancedRDS.UseVisualStyleBackColor = true;
+            this.AdvancedRDS.Click += new System.EventHandler(this.AdvancedRDS_Click);
             // 
             // SettingsPanel
             // 
@@ -131,6 +132,7 @@ namespace SDRSharp.XDR
             this.mainTableLayoutPanel.ResumeLayout(false);
             this.mainTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
+
         }
         #endregion
 

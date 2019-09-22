@@ -1,0 +1,3 @@
+sdr://188.25.106.73:5555/ - Romania - Stations from Romania and Bulgaria receivable on 100.5 Rock FM in IBOC, It can also be seen in the README
+sdr://212.139.208.227:5555/ - UK (Kent) - Stations from UK and France stations receivable
+sdr://212.187.114.164:5556/ - UK (someLW and MW only) --- 747khz MCB Radio from The Netherlands is good choice for listening at daytime :)

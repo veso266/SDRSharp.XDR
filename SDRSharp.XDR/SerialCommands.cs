@@ -213,19 +213,33 @@ namespace SDRSharp.XDR
                         SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "S" : "M"); //M = Forced Mono, m = normal Mono
                     }
                     serial_signal(XDRPlugin._sdr.VisualSNR, 2); //Signal 
-                    SP.Write("\n");
+                    SP.Write("\r\n");
 
 
                     //RDS
-                    if (XDRPlugin._sdr.RdsPICode != 0)
+                    if (!XDRPlugin.ExternalRDS) //We are using SDR# Internal RDS so do its mumbo-jumbo
                     {
-                        serial_pi(XDRPlugin._sdr.RdsPICode, PI_CORRECT);
-                        SP.Write("R");
-                        SP.Write(XDRPlugin.RDS_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
-                        SP.Write("\n");
+                        if (XDRPlugin._sdr.RdsPICode != 0)
+                        {
+                            serial_pi(XDRPlugin._sdr.RdsPICode, PI_CORRECT);
+                            SP.Write("R");
+                            SP.Write(XDRPlugin.RDS_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
+                            SP.Write("\r\n");
+                        }
+                        XDRPlugin.RDS_Group = null;
                     }
-                    //XDRPlugin._sdr.RdsPICode = 0;
-                    XDRPlugin.RDS_Group = null;
+                    else //We are using RDSSpy as RDS Decoder
+                    {
+                        if (XDRPlugin.RDSDetected)
+                        {
+                            serial_pi(XDRPlugin.RDS_PI, PI_CORRECT);
+                            SP.Write("R");
+                            SP.Write(XDRPlugin.RDS_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
+                            SP.Write("\r\n");
+                        }
+                        //XDRPlugin._sdr.RdsPICode = 0;
+                        XDRPlugin.RDS_Group = null;
+                    }
                 }
             }
             XDRPlugin._waiting = false;

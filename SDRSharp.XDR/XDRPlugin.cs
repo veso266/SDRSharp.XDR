@@ -87,7 +87,11 @@ namespace SDRSharp.XDR
         public static ISharpControl _sdr;
 
         //for RDS
+        public static ushort RDS_PI;
         public static string RDS_Group = null;
-        public static bool RDSDetected;
+        public static bool RDSDetected = false;
+
+        //For AdvancedRDSWindow
+        public static bool ExternalRDS = false;
     }
 }

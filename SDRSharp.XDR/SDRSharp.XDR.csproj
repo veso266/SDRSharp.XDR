@@ -81,6 +81,11 @@
       <DependentUpon>AdvancedRDSWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RDS\RDSFunctions.cs" />
     <Compile Include="RDS\RDSHandle.cs" />
     <Compile Include="SerialCommands.cs" />
@@ -91,15 +96,29 @@
     <Compile Include="SettingsPanel.Designer.cs">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\CustomTooltip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\WinformTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UDP.cs" />
     <Compile Include="XDRPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdvancedRDSWindow.resx">
+      <DependentUpon>AdvancedRDSWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingsPanel.resx">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NO-DOESNOTWORK\" />
+    <None Include="Resources\Wolf.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
