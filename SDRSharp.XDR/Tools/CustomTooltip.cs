@@ -31,9 +31,9 @@ namespace SDRSharp.XDR.Tools
 
         private void OnDraw(object sender, DrawToolTipEventArgs e)
         {
-          
-
             e.Graphics.DrawImage(img, 0, 0);
+            var YourTipTextPoint = new Point(0, 0);
+            e.Graphics.DrawString("When wolves imprint only death tears them apart", SystemFonts.DefaultFont, Brushes.White, YourTipTextPoint);
         }
     }
 }

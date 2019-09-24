@@ -213,7 +213,7 @@ namespace SDRSharp.XDR
                         SP.Write((XDRPlugin._sdr.FmPilotIsDetected) ? "S" : "M"); //M = Forced Mono, m = normal Mono
                     }
                     serial_signal(XDRPlugin._sdr.VisualSNR, 2); //Signal 
-                    SP.Write("\r\n");
+                    SP.Write("\n");
 
 
                     //RDS
@@ -224,21 +224,22 @@ namespace SDRSharp.XDR
                             serial_pi(XDRPlugin._sdr.RdsPICode, PI_CORRECT);
                             SP.Write("R");
                             SP.Write(XDRPlugin.RDS_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
-                            SP.Write("\r\n");
+                            SP.Write("\n");
                         }
+                        //XDRPlugin._sdr.RdsPICode = 0;
                         XDRPlugin.RDS_Group = null;
                     }
+                    
                     else //We are using RDSSpy as RDS Decoder
                     {
                         if (XDRPlugin.RDSDetected)
                         {
                             serial_pi(XDRPlugin.RDS_PI, PI_CORRECT);
                             SP.Write("R");
-                            SP.Write(XDRPlugin.RDS_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
-                            SP.Write("\r\n");
+                            SP.Write(XDRPlugin.RDS_Spy_Group + "00"); //00 at the end are error correction: 0 - no errors 1 - max 2-bit correction 2 - max 5-bit correction
+                            SP.Write("\n");
                         }
-                        //XDRPlugin._sdr.RdsPICode = 0;
-                        XDRPlugin.RDS_Group = null;
+                        XDRPlugin.RDS_Spy_Group = null;
                     }
                 }
             }

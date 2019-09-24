@@ -71,13 +71,13 @@ namespace SDRSharp.XDR
         public static void ParseData(string data)
         {
             //We are parsing ASCII G Protocol
-            string[] DataArr = data.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] DataArr = data.Split(new char[] { '\r', '\n' }, StringSplitOptions.None);
             if (DataArr[0] == "G:") //just check if we are not sending garbage or someone else is trying to poison our message :)
             {
-                string RDSGroup = DataArr[1];
-                ushort PI = ushort.Parse(RDSGroup.Substring(0, 4)); //Short is 4 bytes long so it should never fail
+                string RDSGroup = DataArr[2];
+                ushort PI = (ushort)Convert.ToUInt32(RDSGroup.Substring(0, 4), 16);
                 XDRPlugin.RDS_PI = PI;
-                XDRPlugin.RDS_Group = RDSGroup;
+                XDRPlugin.RDS_Spy_Group = RDSGroup.Substring(4);
             }
         }
     }

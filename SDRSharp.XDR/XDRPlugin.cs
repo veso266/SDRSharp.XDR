@@ -49,6 +49,9 @@ namespace SDRSharp.XDR
 
             //Hook into RDS stream
             XDRPlugin._sdr.RegisterStreamHook(new RDSHandle(), ProcessorType.RDSBitStream);
+            ExternalRDS = Utils.GetBooleanSetting("ExternalRDS", false);
+            if (ExternalRDS)
+                AdvancedRDSWindow.StartServer(8888); //If RDS Spy is selected we want to start the server immediately
         }
 
 		// When you close SDR# it calls this
@@ -57,6 +60,8 @@ namespace SDRSharp.XDR
 			Utils.SaveSetting("enableXdr", this._controlPanel.XdrEnabled);
 			Utils.SaveSetting("XdrComIndex", this._controlPanel.comIndex);
 			Utils.SaveSetting("BaudIndex", this._controlPanel.BaudIndex);
+            Utils.SaveSetting("ExternalRDS", ExternalRDS);
+            Utils.SaveSetting("EsterEgg", EsterEgg);
 			if (XDRPlugin._continue)
 			{
 				XDRPlugin._waiting = true;
@@ -89,9 +94,13 @@ namespace SDRSharp.XDR
         //for RDS
         public static ushort RDS_PI;
         public static string RDS_Group = null;
+        public static string RDS_Spy_Group = null; //I have to sleep but .... agrrrr
         public static bool RDSDetected = false;
 
         //For AdvancedRDSWindow
         public static bool ExternalRDS = false;
+
+        //Easter egg
+        public static bool EsterEgg = true;
     }
 }

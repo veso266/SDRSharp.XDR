@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using SDRSharp.XDR.Tools;
+using SDRSharp.Radio;
 
 namespace SDRSharp.XDR
 {
@@ -20,7 +21,7 @@ namespace SDRSharp.XDR
         {
             InitializeComponent();
         }
-        
+
         public static AdvancedRDSWindow Instance
         {
             //singleton design pattern to return always the same instance of a form
@@ -30,11 +31,15 @@ namespace SDRSharp.XDR
                 {
                     form2 = new AdvancedRDSWindow();
                     form2.Text = "Advanced RDS Settings";
-                    form2.NonClientMouseHover += form2.TitleHoveredEvent; //Hook into TitleHover event
+                    XDRPlugin.EsterEgg = Utils.GetBooleanSetting("EsterEgg", true);
+                    if (XDRPlugin.EsterEgg)
+                        form2.NonClientMouseHover += form2.TitleHoveredEvent; //Hook into TitleHover event
                     if (!XDRPlugin.ExternalRDS)
                         form2.internalrds.Checked = true;
                     else
+                    {
                         form2.rdsspy.Checked = true;
+                    }
                 }
                 return form2;
 
@@ -63,6 +68,19 @@ namespace SDRSharp.XDR
 
 
         private void UDPListen_Click(object sender, EventArgs e)
+        {
+            StartServer();
+            UDPListen.Text = "Connected, don't click me again!!";
+            UDPListen.Enabled = false;
+        }
+        public static void StartServer(int listenPort)
+        {
+            UDPServer.listenPort = listenPort;
+            Thread RecieveUDP = new Thread(UDPServer.Serve);
+            RecieveUDP.Start();
+            RecieveUDP.IsBackground = true; //if this is not true we won't be able to close the SDR# because this will keep running and we don't want that
+        }
+        private void StartServer()
         {
             UDPServer.listenPort = Convert.ToInt32(textBox2.Text);
             Thread RecieveUDP = new Thread(UDPServer.Serve);
